@@ -1,0 +1,25 @@
+# Логи
+*.log
+logs/
+
+# Временные файлы
+*.tmp
+*.temp
+*.swp
+*~
+.DS_Store
+
+# Артефакты сборки
+build/
+dist/
+__pycache__/
+*.pyc
+
+# Локальные настройки и секреты
+.env
+.env.*
+!.env.example
+
+# Дампы сетевого трафика
+*.pcap
+*.pcapng
