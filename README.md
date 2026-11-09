@@ -10,7 +10,7 @@ Bash, Git, GitHub, Wireshark, Docker Compose, Nginx, GitHub Actions, SSH.
 
 - `check_api.sh` — проверка доступности API.
 - `analyze_logs.sh` — анализ HTTP-логов.
-- `compose.yaml` — запуск контейнеров.
+- `docker-compose.yml` — запуск контейнеров.
 - `nginx.conf` — настройка Nginx.
 - `.github/workflows/ci.yml` — автоматическая проверка скриптов.
 - `http_capture.pcapng` — захваченный HTTP-трафик.
@@ -115,3 +115,24 @@ scp project.tar.gz user@server:/home/user/
 - `172.18.0.2` — HTTP Echo.
 
 Для просмотра HTTP-запросов используется фильтр `http`.
+
+## Анализ публичного API через Wireshark
+
+Проведён захват HTTP-трафика при обращении к публичному API httpbin.org.
+
+Интерфейс захвата: enp2s0.
+Файл: public_api_capture.pcapng.
+Всего захвачено: 31 пакет, потерь нет.
+
+Результаты запросов:
+
+| Метод | URL | HTTP-код |
+|---|---|---|
+| GET | http://httpbin.org/get | 200 |
+| GET | http://httpbin.org/status/404 | 404 |
+| GET | http://httpbin.org/status/200 | 200 |
+
+IP клиента: 10.14.40.249.
+IP серверов: 54.172.45.38, 3.221.253.123.
+
+Для просмотра HTTP-запросов и ответов используется фильтр `http`.
