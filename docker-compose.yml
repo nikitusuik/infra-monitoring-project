@@ -5,7 +5,7 @@ services:
     networks:
       - monitoring
 
-  nginx:
+  proxy:
     image: nginx:alpine
     ports:
       - "80:80"
